@@ -21,13 +21,25 @@ public class ThreadP1 {
 		
 		Demo15 t1=new Demo15();//Thread-0
 		Demo15 t2=new Demo15();//Thread-1
+		System.out.println(t1.isAlive());
 		t1.start();
 		t1.setName("ThreadWelcome");
 		t1.setPriority(Thread.MIN_PRIORITY);
 		System.out.println(t1.getName());
-		t2.start();
+		
 		t2.setPriority(Thread.MAX_PRIORITY);
 		System.out.println(t2.getName());
+		
+		System.out.println(t1.isInterrupted());
+		try
+		{
+			t1.join(10000);
+		}
+		catch(InterruptedException t)
+		{
+			
+		}
+		t2.start();
 
 	}
 
